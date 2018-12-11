@@ -1,0 +1,8 @@
+script:
+- mkdir -p demo/file
+- mvn clean install -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true -Dmaven.test.skip=true
+- cp -prf target/*.war demo/file
+- mv demo/file/*.war demo/file/ROOT.war
+
+#test
+image: zhz789/war:1.0
